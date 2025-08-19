@@ -8,7 +8,7 @@ from diffusers import (
     ControlNetModel, StableDiffusionControlNetPipeline,
     DDPMScheduler, AutoencoderKL,
 )
-from Dataset2 import DefectSynthesisDataset
+from Dataset import DefectSynthesisDataset
 from tqdm import tqdm
 
 # ───────────── CONFIG ─────────────
