@@ -27,7 +27,7 @@ DefectDiffusion/
 
 │── Dataset.py         # DefectSynthesisDataset 정의
 
-│── train.py           # 학습 스크립트 (LoRA/ControlNet Fine-tuning)
+│── Train.py           # 학습 스크립트 (LoRA/ControlNet Fine-tuning)
 
 │── infer.py           # Inference 스크립트 (조건 기반 이미지 합성)
 
