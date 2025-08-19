@@ -7,7 +7,7 @@
 
 ✅ 웹 기반 접근성 제공 (현장 기술자도 사용 가능)
 
-적용 기술
+<적용 기술>
 
 Stable Diffusion: Latent diffusion 기반 이미지 생성 모델
 
@@ -18,3 +18,14 @@ LoRA Fine-tuning: 제조 데이터셋 기반 경량 파인튜닝 기법
 AWS EC2: 클라우드 GPU 환경에서 학습 및 추론 수행
 
 Django + React: 웹 기반 인터페이스 제공
+
+<프로젝트 구조>
+DefectDiffusion/
+│── Dataset.py         # DefectSynthesisDataset 정의
+│── train.py           # 학습 스크립트 (LoRA/ControlNet Fine-tuning)
+│── infer.py           # Inference 스크립트 (조건 기반 이미지 합성)
+│── 
+│── models/            # Adapter, UNet, LoRA 모듈
+│── configs/           # 학습/추론 설정 파일 (YAML)
+│── app.py             # Django 기반 백엔드 서버
+│── README.md          # 프로젝트 설명 파일
