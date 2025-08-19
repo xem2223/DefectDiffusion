@@ -21,11 +21,19 @@ Django + React: 웹 기반 인터페이스 제공
 
 <프로젝트 구조>
 DefectDiffusion/
+
 │── Dataset.py         # DefectSynthesisDataset 정의
+
 │── train.py           # 학습 스크립트 (LoRA/ControlNet Fine-tuning)
+
 │── infer.py           # Inference 스크립트 (조건 기반 이미지 합성)
-│── 
+
+│── precompute_latents.py  # OK 이미지/Mask의 Latent & Condition 사전 계산
+
 │── models/            # Adapter, UNet, LoRA 모듈
+
 │── configs/           # 학습/추론 설정 파일 (YAML)
+
 │── app.py             # Django 기반 백엔드 서버
+
 │── README.md          # 프로젝트 설명 파일
