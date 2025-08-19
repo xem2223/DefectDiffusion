@@ -16,6 +16,8 @@ ControlNet: Mask/조건 입력을 활용한 세밀한 이미지 제어
 
 LoRA Fine-tuning: 제조 데이터셋 기반 경량 파인튜닝 기법
 
+Latent Precomputation: VAE를 통해 OK 이미지/Mask의 latent & cond를 사전에 계산하여 학습 효율 극대화
+
 AWS EC2: 클라우드 GPU 환경에서 학습 및 추론 수행
 
 Django + React: 웹 기반 인터페이스 제공
