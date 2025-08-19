@@ -22,6 +22,7 @@ Django + React: 웹 기반 인터페이스 제공
 
 
 <프로젝트 구조>
+
 DefectDiffusion/
 
 │── Dataset.py         # DefectSynthesisDataset 정의
