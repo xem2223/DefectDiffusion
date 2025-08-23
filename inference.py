@@ -1,4 +1,4 @@
-# inference_merge_full.py
+# inference.py
 # ------------------------------------------------------------
 # - UNet/ControlNet LoRA 풀 병합 → 순수 모듈로 파이프라인 구성
 # - Inpaint 모드 지원 (init + cond + mask)
