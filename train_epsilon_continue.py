@@ -1,4 +1,4 @@
-# train_epsilon_replay.py
+# train_epsilon_continue.py
 # ------------------------------------------------------------
 # Phase-2 학습 + 리플레이 섞기
 #  - 목적함수 교정: NG latent에 노이즈 추가 → ε(or v) 예측
