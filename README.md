@@ -42,3 +42,19 @@ DefectDiffusion/
 │── app.py             # Django 기반 백엔드 서버
 
 │── README.md          # 프로젝트 설명 파일
+
+
+<inference.py 실행>
+
+python inference.py \
+--unet_lora_dir ./models/unet_lora \
+--ctrl_lora_dir ./models/ctrl_lora \
+--prompt "switch contamination defect" \
+--negative "unnecessary changes, altered background, unrealistic texture" \
+--cond ./samples_img2img/09_switch_contamination_seed132_COND.png \
+--init ./samples_img2img/09_switch_contamination_seed132_OK.png \
+--out ./samples_infer --steps 32 --scale 6.0 --strength 0.3 \
+--n 2 --seed 123 --fp16 --bypass_check
+
+cond와 init은 입력 이미지 경로
+prompt는 입력 텍스트 (클래스명 + 결함명)
