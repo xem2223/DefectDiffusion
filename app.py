@@ -17,8 +17,14 @@ from peft import PeftModel
 체크리스트
 ./models/checkpoints/unet_lora와 ./models/checkpoints/ctrl_lora 폴더 안에 
 adapter_model.safetensors(또는 .bin)와 **adapter_config.json**이 있어야 함
+"""
 
-((결과가 너무 강하면 strength를 0.30~0.45 범위로, 약하면 0.5 이상으로 올려보기))
+"""
+전체 구조
+서버 기동 시 모델 로딩(SD1.5 + ControlNet + LoRA 병합)
+웹에서 POST로 OK 이미지/마스크/프롬프트를 받으면
+img2img + ControlNet 파이프라인으로 NG 이미지 합성
+base64로 결과 이미지를 JSON으로 반환
 """
 
 # --- 실제 모델 로딩 및 추론 코드 ---
@@ -52,6 +58,7 @@ try:
     # 폴더 구조: ./models/checkpoints/{unet_lora, ctrl_lora}
     base_dir = os.path.dirname(__file__)
     ckpt_root = os.path.abspath(os.path.join(base_dir, "..", "models", "checkpoints"))
+    #LoRA 병합
     unet_lora_dir = os.path.join(ckpt_root, "unet_lora")
     ctrl_lora_dir = os.path.join(ckpt_root, "ctrl_lora")
 
