@@ -1,0 +1,266 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <title>genboost · 프로젝트 소개</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Pretendard -->
+  <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --primary:#6366f1; --accent:#22d3ee;
+      --ink-1:#f8fafc; --ink-2:#e2e8f0; --ink-3:#94a3b8;
+      --glass-bg: rgba(255,255,255,0.06);
+      --glass-brd: rgba(255,255,255,0.18);
+      --card-bg: rgba(2,6,23,.55);
+      --card-brd: rgba(148,163,184,.25);
+    }
+    *{ font-family:"Pretendard", system-ui, -apple-system, Segoe UI, Roboto, "Noto Sans KR", Arial, sans-serif; }
+    body{
+      min-height:100vh; margin:0;
+      background:
+        radial-gradient(1200px 800px at 10% 10%, #a5b4fc33, transparent 60%),
+        radial-gradient(900px 600px at 90% 40%, #f0abfc33, transparent 60%),
+        linear-gradient(180deg, #0f172a, #111827 60%, #0b1020);
+      color:#e5e7eb;
+    }
+
+    /* NAV */
+    .nav-glass{ position:sticky; top:0; z-index:1040; background:rgba(6,11,25,.55); backdrop-filter:blur(10px); border-bottom:1px solid var(--glass-brd); }
+    .brand-chip{ display:inline-grid; place-items:center; width:40px; height:40px; border-radius:10px; background:linear-gradient(135deg,var(--primary),var(--accent)); color:#fff; font-weight:800; }
+
+    /* HERO */
+    .hero{ text-align:center; padding:78px 16px 40px; }
+    .hero h1{ font-size:40px; font-weight:800; color:var(--ink-1); }
+    .hero p{ font-size:18px; color:var(--ink-3); }
+    .btn-gradient{ background:linear-gradient(135deg,var(--primary),var(--accent)); color:#fff; border:none; box-shadow:0 8px 24px rgba(34,211,238,.25); }
+    .btn-gradient:hover{ filter:brightness(1.04); }
+
+    /* SECTIONS */
+    .section{ padding:28px 0; }
+    .glass{ background:var(--glass-bg); border:1px solid var(--glass-brd); border-radius:16px; backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px); }
+    .cardish{ background:var(--card-bg); border:1px solid var(--card-brd); border-radius:14px; padding:18px; height:100%; }
+    h3{ color:var(--ink-2); font-weight:700; margin-bottom:12px; }
+
+    /* LISTS */
+    .list-check li{ margin:6px 0; }
+    .list-check li::marker{ color:#7dd3fc; }
+
+    /* ARCHI SVG */
+    .archi-wrap{ background:rgba(255,255,255,.03); border:1px solid rgba(255,255,255,.12); border-radius:14px; padding:14px; }
+    .svg-card{ fill: rgba(2,6,23,.75); stroke: rgba(148,163,184,.35); }
+    .svg-title{ font-weight:700; fill:#e5e7eb; }
+    .svg-sub{ fill:#94a3b8; font-size:12px; }
+    .svg-arrow{ stroke:#60a5fa; }
+
+    /* TIMELINE */
+    .timeline{ position:relative; padding-left:24px; }
+    .timeline::before{ content:""; position:absolute; left:8px; top:0; bottom:0; width:2px; background:linear-gradient(180deg,transparent,#6b7280,transparent); }
+    .t-item{ position:relative; margin:14px 0; }
+    .t-item::before{ content:""; position:absolute; left:-2px; top:6px; width:10px; height:10px; border-radius:999px; background:linear-gradient(135deg,var(--primary),var(--accent)); }
+
+    /* STACK */
+    .pill{ border:1px solid var(--glass-brd); border-radius:999px; padding:6px 12px; font-size:12px; color:var(--ink-3); background:rgba(255,255,255,.04); }
+    .stack-logo{ height:34px; width:auto; opacity:.95; }
+
+    .sep{ height:1px; background: linear-gradient(90deg, transparent, rgba(148,163,184,.35), transparent); margin: 20px 0; }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav-glass">
+    <div class="container d-flex align-items-center justify-content-between py-2">
+      <div class="d-flex align-items-center gap-2">
+        <span class="brand-chip">G</span><strong>genboost</strong>
+      </div>
+      <div class="d-none d-md-flex align-items-center gap-3">
+        <a href="{% url 'home' %}" class="text-decoration-none text-light-50">Home</a>
+        <a href="{% url 'project' %}" class="text-decoration-none text-light-50">Project</a>
+        <a href="{% url 'generate' %}" class="btn btn-sm btn-gradient">이용하기</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <h1>프로젝트 소개</h1>
+      <p>부족한 데이터를 보강하기 위한 제조 데이터 기반<br>생성형 이미지 AI 모델 개발</p>
+      <div class="mt-3 d-flex justify-content-center gap-2">
+        <a href="{% url 'generate' %}" class="btn btn-gradient btn-lg">데모 이용하기</a>
+        <a href="https://github.com/xem2223/DefectDiffusion" target="_blank" class="btn btn-outline-light btn-lg">GitHub 코드</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="container"><div class="sep"></div></div>
+
+  <!-- Overview -->
+  <section class="container section">
+    <div class="row g-4">
+      <div class="col-lg-6">
+        <div class="cardish h-100">
+          <h3>개발 배경 & 필요성</h3>
+          <p>제조 산업에서는 실제 결함 데이터를 충분히 확보하기 어렵고, 수집/라벨링 비용도 큽니다. 이로 인해 품질 검사 모델 학습에 필요한 결함 이미지가 부족해지고, 도메인 편향·데이터 불균형 문제가 발생합니다.</p>
+          <ul class="list-check">
+            <li>희소/불균형 결함 데이터 → 일반화 성능 저하</li>
+            <li>어노테이션 비용 부담 → 데이터 증강의 필수성</li>
+            <li>공정/도메인 간 분포 차이 → 합성 데이터로 커버</li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="cardish h-100">
+          <h3>프로젝트 개요</h3>
+          <p>Stable Diffusion v1.5 기반에 ControlNet + Inpaint를 결합하여, 정상(OK) 이미지와 결함 마스크(cond)·텍스트 프롬프트를 입력으로 **원본 보존 + 지정 영역 결함 합성**을 구현합니다. LoRA 병합을 통해 경량 학습/전이도 지원합니다.</p>
+          <ul class="list-check">
+            <li>ControlNet 조건 + Inpaint 마스크 동시 사용</li>
+            <li>LoRA/스케줄러/파라미터 스윕으로 다양한 도메인 대응</li>
+            <li>Django 웹 UI로 업로드→추론→비교 뷰→다운로드</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Architecture (Inline SVG Diagram) -->
+  <section class="container section">
+    <div class="cardish">
+      <div class="d-flex align-items-center justify-content-between mb-2">
+        <h3 class="mb-0">아키텍처 다이어그램</h3>
+        <span class="pill">ControlNet · Inpaint · LoRA</span>
+      </div>
+      <div class="archi-wrap">
+        <svg viewBox="0 0 960 320" width="100%" height="100%" role="img" aria-label="Architecture Diagram">
+          <!-- Left: Upload -->
+          <rect x="40" y="40" rx="12" ry="12" width="180" height="240" class="svg-card"/>
+          <text x="130" y="75" text-anchor="middle" class="svg-title">Web UI</text>
+          <text x="130" y="100" text-anchor="middle" class="svg-sub">Django (Upload)</text>
+          <text x="130" y="135" text-anchor="middle" class="svg-sub">OK Image</text>
+          <text x="130" y="160" text-anchor="middle" class="svg-sub">Cond / Mask</text>
+          <text x="130" y="185" text-anchor="middle" class="svg-sub">Prompt</text>
+
+          <!-- Arrow -->
+          <line x1="220" y1="160" x2="300" y2="160" class="svg-arrow" stroke-width="2"/>
+          <polygon points="300,160 292,154 292,166" fill="#60a5fa"/>
+
+          <!-- Center: SD + ControlNet -->
+          <rect x="300" y="60" rx="12" ry="12" width="360" height="200" class="svg-card"/>
+          <text x="480" y="95" text-anchor="middle" class="svg-title">SD v1.5 + ControlNet</text>
+          <text x="480" y="120" text-anchor="middle" class="svg-sub">Inpaint (white=edit)</text>
+          <text x="480" y="145" text-anchor="middle" class="svg-sub">LoRA Merge (UNet/ControlNet)</text>
+          <text x="480" y="170" text-anchor="middle" class="svg-sub">Scheduler / Guidance / Strength</text>
+
+          <!-- Arrow -->
+          <line x1="660" y1="160" x2="740" y2="160" class="svg-arrow" stroke-width="2"/>
+          <polygon points="740,160 732,154 732,166" fill="#60a5fa"/>
+
+          <!-- Right: Results -->
+          <rect x="740" y="40" rx="12" ry="12" width="180" height="240" class="svg-card"/>
+          <text x="830" y="75" text-anchor="middle" class="svg-title">Results</text>
+          <text x="830" y="105" text-anchor="middle" class="svg-sub">NG Image</text>
+          <text x="830" y="130" text-anchor="middle" class="svg-sub">Media Save</text>
+          <text x="830" y="155" text-anchor="middle" class="svg-sub">Compare View</text>
+          <text x="830" y="180" text-anchor="middle" class="svg-sub">Download</text>
+        </svg>
+      </div>
+      <div class="small text-secondary mt-2">※ 업로드 → 전처리/마스크 생성 → ControlNet Inpaint → 저장/비교 뷰</div>
+    </div>
+  </section>
+
+  <!-- Key Features -->
+  <section class="container section">
+    <div class="row g-4">
+      <div class="col-lg-6">
+        <div class="cardish h-100">
+          <h3>핵심 기능</h3>
+          <ul class="list-check">
+            <li>OK + Cond/Mask + Prompt 입력 → NG 합성</li>
+            <li>자동 마스크 생성(Cond→Gray→Threshold→Feather)</li>
+            <li>ControlNet 세기/구간(cscale/cstart/cend) 조절</li>
+            <li>Seed 고정 & 비교 뷰(3~4분할)로 재현성 보장</li>
+            <li>MEDIA 저장 & URL 반환으로 서비스 연동 용이</li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="cardish h-100">
+          <h3>특장점</h3>
+          <ul class="list-check">
+            <li>LoRA 기반 경량 파인튜닝 → GPU 메모리 효율</li>
+            <li>ε/v 예측, SNR 가중, Grad Clipping, LR warm-up</li>
+            <li>다양한 공정/도메인에 대한 적응력</li>
+            <li>웹 UI로 비전/현업 모두 손쉬운 사용</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Timeline -->
+  <section class="container section">
+    <div class="cardish">
+      <div class="d-flex align-items-center justify-content-between mb-2">
+        <h3 class="mb-0">프로젝트 타임라인</h3>
+        <span class="pill">Milestones</span>
+      </div>
+      <div class="timeline mt-2">
+        <div class="t-item">
+          <div class="fw-semibold">M1 · 문제 정의 & 데이터 스코핑</div>
+          <div class="text-secondary small">도메인/결함 유형 정리, 샘플 수집 계획</div>
+        </div>
+        <div class="t-item">
+          <div class="fw-semibold">M2 · 파이프라인 프로토타입</div>
+          <div class="text-secondary small">ControlNet Inpaint, 자동 마스크, 파라미터 스윕</div>
+        </div>
+        <div class="t-item">
+          <div class="fw-semibold">M3 · 웹 연동 & 비교 뷰</div>
+          <div class="text-secondary small">Django 업로드→추론→MEDIA 저장→3/4분할 뷰</div>
+        </div>
+        <div class="t-item">
+          <div class="fw-semibold">M4 · 실데이터 검증 & 리포팅</div>
+          <div class="text-secondary small">샘플 결과 분석, 리포트 정리, 배포/운영 플랜</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tech Stack -->
+  <section class="container section">
+    <div class="cardish">
+      <div class="d-flex align-items-center justify-content-between mb-3">
+        <h3 class="mb-0">Tech Stack</h3>
+        <span class="pill">Diffusers · ControlNet · Django</span>
+      </div>
+      <div class="row g-3 align-items-center">
+        <div class="col-6 col-md-3"><img class="stack-logo" src="https://upload.wikimedia.org/wikipedia/commons/1/10/Pytorch_logo_icon.svg" alt="PyTorch"></div>
+        <div class="col-6 col-md-3"><img class="stack-logo" src="https://static.djangoproject.com/img/logos/django-logo-negative.svg" alt="Django"></div>
+        <div class="col-6 col-md-3"><img class="stack-logo" src="https://avatars.githubusercontent.com/u/7913652?s=200&v=4" alt="Hugging Face Diffusers"></div>
+        <div class="col-6 col-md-3"><img class="stack-logo" src="https://upload.wikimedia.org/wikipedia/commons/b/b2/Bootstrap_logo.svg" alt="Bootstrap"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="container section">
+    <div class="glass p-4 p-md-5 text-center">
+      <h3 class="fw-bold mb-2">바로 데모를 사용해보세요</h3>
+      <p class="text-muted mb-3">OK/Cond/Mask를 업로드하고 결과를 비교해보세요.</p>
+      <div class="d-flex justify-content-center gap-2">
+        <a href="{% url 'generate' %}" class="btn btn-gradient btn-lg">이용하기</a>
+        <a href="https://github.com/xem2223/DefectDiffusion" target="_blank" class="btn btn-outline-light btn-lg">GitHub 코드</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="text-center text-secondary py-4">
+    © {% now "Y" %} genboost · Project
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

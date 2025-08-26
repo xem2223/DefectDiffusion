@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <title>genboost · 팀 소개</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Pretendard -->
+  <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --primary: #6366f1; /* indigo */
+      --accent:  #22d3ee; /* cyan */
+      --ink-1: #f8fafc;
+      --ink-2: #e2e8f0;
+      --ink-3: #94a3b8;
+      --glass-bg: rgba(255,255,255,0.06);
+      --glass-brd: rgba(255,255,255,0.18);
+      --card-bg: rgba(2,6,23,.55);
+      --card-brd: rgba(148,163,184,.25);
+    }
+    * { font-family: "Pretendard", system-ui, -apple-system, Segoe UI, Roboto, "Noto Sans KR", Arial, sans-serif; }
+    body{
+      min-height:100vh; margin:0;
+      background:
+        radial-gradient(1200px 800px at 10% 10%, #a5b4fc33, transparent 60%),
+        radial-gradient(900px 600px at 90% 40%, #f0abfc33, transparent 60%),
+        linear-gradient(180deg, #0f172a, #111827 60%, #0b1020);
+      color:#e5e7eb;
+    }
+
+    /* NAV */
+    .nav-glass{
+      position: sticky; top: 0; z-index: 1040;
+      background: rgba(6, 11, 25, .55);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--glass-brd);
+    }
+    .brand-chip{
+      display:inline-grid; place-items:center;
+      width:40px; height:40px; border-radius:10px;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      color:white; font-weight:800;
+      box-shadow: 0 8px 24px rgba(34,211,238,.20);
+    }
+
+    /* HERO */
+    .hero{
+      padding: 90px 16px 56px;
+      text-align:center;
+    }
+    .hero h1{ font-size: 44px; font-weight: 800; color: var(--ink-1); letter-spacing: .2px; }
+    .hero p{ margin-top:12px; color: var(--ink-3); font-size: 18px; }
+
+    .btn-gradient {
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      border: none; color: white;
+      box-shadow: 0 8px 24px rgba(34,211,238,.25);
+    }
+    .btn-gradient:hover { filter: brightness(1.04); }
+
+    .glass{
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-brd);
+      border-radius: 16px;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+
+    /* SECTIONS */
+    .section{
+      padding: 24px 0 8px;
+    }
+    .section .title-row{
+      display:flex; align-items:center; justify-content:space-between;
+      margin-bottom: 14px;
+    }
+    .section h4{
+      margin:0; font-weight: 700; color: var(--ink-2);
+    }
+    .pill{
+      border: 1px solid var(--glass-brd);
+      border-radius: 999px; padding: 6px 12px; font-size: 12px; color: var(--ink-3);
+      background: rgba(255,255,255,0.04);
+    }
+
+    /* FEATURE CARDS */
+    .feature{
+      padding:20px;
+      height:100%;
+      transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+    }
+    .feature:hover{
+      transform: translateY(-3px);
+      border-color: rgba(148,163,184,.45);
+      box-shadow: 0 10px 30px rgba(0,0,0,.25);
+    }
+    .feature h5{ color: var(--ink-2); font-weight: 700; }
+    .feature p { color: var(--ink-3); margin:0; }
+
+    /* TEAM */
+    .member-card{
+      border-radius:16px;
+      background: var(--card-bg);
+      border: 1px solid var(--card-brd);
+      padding: 18px;
+      height:100%;
+      transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+    }
+    .member-card:hover{
+      transform: translateY(-3px);
+      border-color: rgba(148,163,184,.45);
+      box-shadow: 0 10px 30px rgba(0,0,0,.25);
+    }
+    .member-card .fw-bold{ font-size: 18px; color: #f1f5f9; }
+    .role{
+      color: #a6b0c3; font-size: 14px;
+    }
+    .role .dot{
+      width:6px; height:6px; display:inline-block; border-radius:999px; margin: 0 6px;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      vertical-align: middle;
+    }
+    .grid-gap{ row-gap: 1.25rem; }
+
+    /* CTA */
+    .cta{
+      text-align:center;
+      overflow: hidden;
+    }
+    .cta .cta-bg{
+      position: absolute; inset:0; z-index:-1;
+      background: radial-gradient(700px 300px at 50% -10%, rgba(99,102,241,.25), transparent 60%);
+      filter: blur(24px);
+    }
+
+    /* FOOTER */
+    .footer { color:#64748b; text-align:center; padding:24px 0; }
+
+    /* UTIL */
+    .shadow-xl{ box-shadow: 0 20px 80px rgba(0,0,0,.35); }
+    .sep{ height:1px; background: linear-gradient(90deg, transparent, rgba(148,163,184,.35), transparent); margin: 20px 0; }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+<nav class="nav-glass">
+  <div class="container d-flex align-items-center justify-content-between py-2">
+    <div class="d-flex align-items-center gap-2">
+      <span class="brand-chip">G</span>
+      <strong>genboost</strong>
+    </div>
+    <div class="d-none d-md-flex align-items-center gap-3">
+      <a href="#features" class="text-decoration-none text-light-50">Features</a>
+      <a href="#team" class="text-decoration-none text-light-50">Team</a>
+      <!-- ✅ 프로젝트 페이지 링크 -->
+      <a href="{% url 'project' %}" class="text-decoration-none text-light-50">Project</a>
+      <a href="https://github.com/xem2223/DefectDiffusion" target="_blank" class="text-decoration-none text-light-50">GitHub</a>
+      <a href="{% url 'generate' %}" class="btn btn-sm btn-gradient">이용하기</a>
+    </div>
+  </div>
+</nav>
+
+  <!-- HERO -->
+<section class="hero container">
+  <div class="row justify-content-center">
+    <div class="col-lg-10">
+      <h1>AI로 결함 이미지를 더 빠르고, 더 정확하게</h1>
+      <p>
+        우리 팀 <strong>genboost</strong>는 제조 비전 분야의 실제 문제를 해결하기 위해<br>
+        고품질 결함 합성 파이프라인을 연구·개발하고 있습니다.
+      </p>
+      <div class="mt-4 d-flex justify-content-center gap-2">
+        <!-- 기존 버튼 -->
+        <a href="{% url 'generate' %}" class="btn btn-gradient btn-lg px-4 py-2">이용하기</a>
+        <!-- ✅ 새로 추가된 버튼 -->
+        <a href="{% url 'project' %}" class="btn btn-outline-light btn-lg px-4 py-2">프로젝트 소개</a>
+        <!-- 기존 GitHub 버튼 -->
+        <a href="https://github.com/xem2223/DefectDiffusion" target="_blank" class="btn btn-outline-light btn-lg px-4 py-2">GitHub 코드 보기</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  <div class="container"><div class="sep"></div></div>
+
+  <!-- FEATURES -->
+  <section id="features" class="container section">
+    <div class="title-row">
+      <h4>Features</h4>
+      <span class="pill">ControlNet · Inpaint · Reproducibility</span>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="glass feature h-100">
+          <h5 class="mb-2">정교한 Inpaint</h5>
+          <p>ControlNet + Inpaint로 원하는 영역만 자연스럽게 결함을 합성합니다.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="glass feature h-100">
+          <h5 class="mb-2">실무 맞춤 파라미터</h5>
+          <p>Strength, Scale, Control 범위를 조절해 다양한 공정 데이터를 커버합니다.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="glass feature h-100">
+          <h5 class="mb-2">반복 가능한 실험</h5>
+          <p>Seed 고정과 결과 비교 뷰로 실험 재현성과 검증 효율을 보장합니다.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="container"><div class="sep"></div></div>
+
+  <!-- TEAM -->
+  <section id="team" class="container section">
+    <div class="title-row">
+      <h4>Team : genboost members</h4>
+      <span class="pill">Team · Ownership · Excellence</span>
+    </div>
+    <div class="row grid-gap">
+      <div class="col-md-4">
+        <div class="member-card">
+          <div class="fw-bold">이세미</div>
+          <div class="role">Team Leader <span class="dot"></span> ML Engineering <span class="dot"></span> Full-stack</div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="member-card">
+          <div class="fw-bold">장정현</div>
+          <div class="role">Data Preprocessing &amp; Augmentation</div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="member-card">
+          <div class="fw-bold">문지은</div>
+          <div class="role">Documentation &amp; Project Management</div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="member-card">
+          <div class="fw-bold">유지원</div>
+          <div class="role">Data Curation &amp; Preprocessing</div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="member-card">
+          <div class="fw-bold">임채원</div>
+          <div class="role">Frontend Development</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="container"><div class="sep"></div></div>
+
+  <!-- CTA -->
+  <section class="container section position-relative">
+    <div class="cta-bg"></div>
+    <div class="glass p-4 p-md-5 text-center shadow-xl cta">
+      <h4 class="fw-bold mb-2">바로 테스트해볼까요?</h4>
+      <p class="text-muted mb-3">OK 이미지와 조건 이미지를 업로드하고 결과를 비교해보세요.</p>
+      <div class="d-flex justify-content-center gap-2">
+        <a href="{% url 'generate' %}" class="btn btn-gradient btn-lg">이용하기</a>
+        <a href="https://github.com/xem2223/DefectDiffusion" target="_blank" class="btn btn-outline-light btn-lg">GitHub 코드 보기</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    © {% now "Y" %} genboost · Team
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
