@@ -29,14 +29,23 @@ Stable Diffusion, ControlNet, LoRA Fine-tuning을 결합하여
 
 DefectDiffusion/
 │
+
 ├── Dataset.py              # DefectSynthesisDataset 정의
+
 ├── Train.py                # 학습 스크립트 (LoRA / ControlNet Fine-tuning)
+
 ├── inference.py            # Inference 스크립트 (조건 기반 이미지 합성)
+
 ├── precompute_latents.py   # OK 이미지 / Mask의 Latent & Condition 사전 계산
+
 │
+
 ├── models/                 # Adapter, UNet, LoRA 모듈
+
 ├── genweb/                 # Django 기반 백엔드 서버
+
 │
+
 └── README.md               # 프로젝트 설명 파일
 
 
