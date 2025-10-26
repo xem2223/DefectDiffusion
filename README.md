@@ -42,6 +42,7 @@ DefectDiffusion/
 │── README.md          # 프로젝트 설명 파일
 
 <필수 패키지 및 버전 정보>
+<Stable Diffusion + ControlNet + LoRA + PEFT + Inpaint 파이프라인에서의 조합>
 
 | 패키지                 | 버전     | 역할                                     |
 | :------------------ | :----- | :------------------------------------- |
