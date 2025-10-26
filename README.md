@@ -28,6 +28,7 @@ Stable Diffusion, ControlNet, LoRA Fine-tuning을 결합하여
 📁 프로젝트 구조
 
 DefectDiffusion/
+
 │
 
 ├── Dataset.py              # DefectSynthesisDataset 정의
@@ -81,7 +82,7 @@ python inference.py \
 --n 2 --seed 123 --fp16 --bypass_check
 
 
-매개변수 설명
+<<매개변수 설명>>
 
 --cond : 입력 Mask 이미지 경로
 
