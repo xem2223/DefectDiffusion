@@ -257,6 +257,7 @@ def main():
                 mask = mask.filter(ImageFilter.GaussianBlur(args.feather))
         else:
             mask = auto_mask_from_cond(cond_rgb, 512, args.mask_thresh, args.mask_invert, args.feather)
+            mask.save(os.path.join(args.out, "__debug_mask_from_cond.png"))
     else:
         mask = None
 
