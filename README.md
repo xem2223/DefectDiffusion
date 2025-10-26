@@ -41,6 +41,21 @@ DefectDiffusion/
 
 │── README.md          # 프로젝트 설명 파일
 
+<필수 패키지 및 버전 정보>
+
+| 패키지                 | 버전     | 역할                                     |
+| :------------------ | :----- | :------------------------------------- |
+| **torch**           | 2.1.2  | PyTorch 핵심 딥러닝 프레임워크                   |
+| **torchvision**     | 0.16.2 | 이미지 데이터셋 및 변환(Transforms) 지원           |
+| **torchaudio**      | 2.1.2  | 오디오 데이터 처리용 PyTorch 확장                 |
+| **diffusers**       | 0.27.2 | Stable Diffusion 및 관련 모델 프레임워크         |
+| **transformers**    | 4.39.3 | 텍스트 인코딩용 모델(CLIP, T5 등)                |
+| **accelerate**      | 0.27.2 | 멀티 GPU 및 분산 학습 지원                      |
+| **peft**            | 0.10.0 | LoRA 등 파라미터 효율적 미세조정(PEFT) 지원          |
+| **huggingface_hub** | 0.20.3 | Hugging Face Hub 연동 및 모델 관리            |
+| **safetensors**     | 0.4.2  | 빠르고 안전한 모델 가중치 저장 포맷                   |
+| **xformers**        | 0.0.23 | 메모리 효율적 Transformer 연산 (Attention 최적화) |
+
 
 <inference.py 실행>
 
