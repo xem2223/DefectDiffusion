@@ -37,8 +37,6 @@ DefectDiffusion/
 
 │── models/            # Adapter, UNet, LoRA 모듈
 
-│── configs/           # 학습/추론 설정 파일 (YAML)
-
 │── genweb/             # Django 기반 백엔드 서버
 
 │── README.md          # 프로젝트 설명 파일
