@@ -57,7 +57,7 @@ DefectDiffusion/
 | **xformers**        | 0.0.23 | 메모리 효율적 Transformer 연산 (Attention 최적화) |
 
 
-<inference.py 실행>
+<inference.py 실행 방법>
 
 python inference.py \
 --unet_lora_dir ./models/unet_lora \
